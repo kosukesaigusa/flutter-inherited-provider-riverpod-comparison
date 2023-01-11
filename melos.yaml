@@ -1,0 +1,10 @@
+sdkPath: .fvm/flutter_sdk
+
+name: flutter_inherited_provider_riverpod_comparison
+
+packages:
+  - packages/**
+
+scripts:
+  analyze:
+    exec: dart analyze .
