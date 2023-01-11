@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug inherited",
+      "program": "packages/inherited/lib/main.dart",
+      "request": "launch",
+      "type": "dart",
+      "args": ["--debug"]
+    },
+    {
+      "name": "Debug provider",
+      "program": "packages/provider/lib/main.dart",
+      "request": "launch",
+      "type": "dart",
+      "args": ["--debug"]
+    },
+    {
+      "name": "Debug riverpod",
+      "program": "packages/riverpod/lib/main.dart",
+      "request": "launch",
+      "type": "dart",
+      "args": ["--debug"]
+    }
+  ]
+}

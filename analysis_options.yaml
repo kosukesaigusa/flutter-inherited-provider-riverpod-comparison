@@ -6,8 +6,6 @@ analyzer:
     implicit-dynamic: false
 
   errors:
-    # https://github.com/dart-lang/sdk/issues/46844
-    # https://github.com/rrousselGit/freezed/issues/488
     invalid_annotation_target: ignore
     lines_longer_than_80_chars: ignore
     flutter_style_todos: ignore
