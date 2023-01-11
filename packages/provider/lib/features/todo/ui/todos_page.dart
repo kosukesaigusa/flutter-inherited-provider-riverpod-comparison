@@ -10,20 +10,16 @@ class TodosPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final todos = context.watch<TodoModel>().todos;
     return Scaffold(
       appBar: AppBar(title: const Text('Todos')),
-      body: ChangeNotifierProvider<TodoModel>(
-        create: (context) => TodoModel(),
-        child: Consumer<TodoModel>(
-          builder: (context, todoModel, child) => ListView.builder(
-            itemCount: todoModel.todos.length,
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            itemBuilder: (context, index) {
-              final todo = todoModel.todos[index];
-              return _TodoItem(todo: todo);
-            },
-          ),
-        ),
+      body: ListView.builder(
+        itemCount: todos.length,
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        itemBuilder: (context, index) {
+          final todo = todos[index];
+          return _TodoItem(todo: todo);
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -49,6 +45,12 @@ class _TodoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox();
+    return ListTile(
+      leading: Checkbox(
+        value: todo.isCompleted,
+        onChanged: (value) {},
+      ),
+      title: Text(todo.title),
+    );
   }
 }

@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
 
-/// A model to define todo related features' behavior.
-class TodoModel extends ChangeNotifier {
-  // ///
-  // ProviderTodo({required TodoRepository todoRepository})
-  //     : _todoRepository = todoRepository;
+import '../todo_repository.dart';
 
-  // ///
-  // final TodoRepository _todoRepository;
+/// A model to describe todo feature behavior.
+class TodoModel extends ChangeNotifier {
+  ///
+  TodoModel({required TodoRepository todoRepository})
+      : _todoRepository = todoRepository;
+
+  ///
+  final TodoRepository _todoRepository;
 
   ///
   final List<Todo> todos = [];
 
   ///
-  void addTodo(Todo todo) {
+  Future<void> addTodo(Todo todo) async {
+    await _todoRepository.addTodo(todo);
     todos.add(todo);
     notifyListeners();
   }
+
+  ///
+  Future<void> updateTodo(Todo todo) async {}
 }
 
 /// An entity class of Todo.
