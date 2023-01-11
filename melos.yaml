@@ -6,5 +6,10 @@ packages:
   - packages/**
 
 scripts:
+  lint:all:
+    run: melos run analyze && melos run format
   analyze:
     exec: dart analyze .
+
+  format:
+    exec: dart format .
