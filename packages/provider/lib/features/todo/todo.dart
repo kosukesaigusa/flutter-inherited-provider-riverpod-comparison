@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../todo_repository.dart';
+import 'todo_repository.dart';
 
 /// A model to describe todo feature behavior.
 class TodoModel extends ChangeNotifier {

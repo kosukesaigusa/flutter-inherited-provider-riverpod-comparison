@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:provider_example/features/todo/todo_repository.dart';
 import 'package:provider_example/features/todo/ui/todos_page.dart';
-import 'package:provider_example/features/todo_repository.dart';
 
 import 'features/todo/todo.dart';
 import 'features/todo/todo_controller.dart';
@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
       ),
       home: MultiProvider(
         providers: [
-          // TODO: Check use Provider.value on not?
           Provider<TodoRepository>(create: (_) => FirestoreTodoRepository()),
         ],
         child: ChangeNotifierProvider<TodoModel>(
