@@ -9,7 +9,7 @@ scripts:
   lint:all:
     run: melos run analyze && melos run format
   analyze:
-    exec: dart analyze .
+    run: dart analyze .
 
   format:
-    exec: dart format .
+    run: dart format .
