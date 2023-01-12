@@ -6,19 +6,21 @@ class Todo {
     required this.id,
     required this.title,
     required this.isCompleted,
+    this.createdAt,
   });
 
   factory Todo.fromJson(Map<String, dynamic> json) => Todo(
         id: (json['id'] ?? '') as String,
         title: (json['title'] ?? '') as String,
         isCompleted: (json['isCompleted'] ?? false) as bool,
+        createdAt: (json['createdAt'] as Timestamp?)?.toDate(),
       );
 
   factory Todo.fromDocumentSnapshot(DocumentSnapshot<Map<String, dynamic>> ds) {
     final json = ds.data()!;
     return Todo.fromJson(<String, dynamic>{
-      'id': ds.id,
       ...json,
+      'id': ds.id,
     });
   }
 
@@ -26,14 +28,14 @@ class Todo {
         'id': id,
         'title': title,
         'isCompleted': isCompleted,
+        'createdAt': FieldValue.serverTimestamp(),
       };
 
-  ///
   final String id;
 
-  ///
   final String title;
 
-  ///
   final bool isCompleted;
+
+  final DateTime? createdAt;
 }

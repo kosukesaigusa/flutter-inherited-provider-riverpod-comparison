@@ -21,7 +21,9 @@ class FirestoreTodoRepository implements TodoRepository {
 
   @override
   Future<List<Todo>> fetchTodos() async {
-    final querySnapshot = await todosCollectionReference.get();
+    final querySnapshot = await todosCollectionReference
+        .orderBy('createdAt', descending: false)
+        .get();
     final todos = querySnapshot.docs
         .map((queryDocumentSnapshot) => queryDocumentSnapshot.data())
         .toList();
