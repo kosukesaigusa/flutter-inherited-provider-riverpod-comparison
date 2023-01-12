@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "295118838785",
+    "project_id": "inherited-provider-riverpod",
+    "storage_bucket": "inherited-provider-riverpod.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295118838785:android:9ad4f8563184e0a182f400",
+        "android_client_info": {
+          "package_name": "com.kosukesaigusa.inherited"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295118838785-m32ua4hb3aqbvl3v07aq1vn23allb6fu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_sML1DIB82rp7bhcNE4Ar6fbQuk-0rvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295118838785-m32ua4hb3aqbvl3v07aq1vn23allb6fu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "295118838785-2bui2gfkur1hnngmoe5hefp9evhjg93i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kosukesaigusa.inherited"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295118838785:android:5e6d9c709c6d855a82f400",
+        "android_client_info": {
+          "package_name": "com.kosukesaigusa.provider"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295118838785-m32ua4hb3aqbvl3v07aq1vn23allb6fu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_sML1DIB82rp7bhcNE4Ar6fbQuk-0rvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295118838785-m32ua4hb3aqbvl3v07aq1vn23allb6fu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "295118838785-2bui2gfkur1hnngmoe5hefp9evhjg93i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kosukesaigusa.inherited"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:295118838785:android:f356280e8bf577bc82f400",
+        "android_client_info": {
+          "package_name": "com.kosukesaigusa.riverpod"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "295118838785-m32ua4hb3aqbvl3v07aq1vn23allb6fu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_sML1DIB82rp7bhcNE4Ar6fbQuk-0rvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "295118838785-m32ua4hb3aqbvl3v07aq1vn23allb6fu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "295118838785-2bui2gfkur1hnngmoe5hefp9evhjg93i.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kosukesaigusa.inherited"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
