@@ -34,7 +34,7 @@ class TodoModel extends ChangeNotifier {
   /// update todos.
   Future<void> updateTodo({required String id, required bool value}) async {
     await _todoRepository.updateIsCompleted(id: id, value: value);
-    final a = [
+    final updatedTodos = [
       for (final todo in _todos)
         if (todo.id == id)
           Todo(id: todo.id, title: todo.title, isCompleted: value)
@@ -43,7 +43,7 @@ class TodoModel extends ChangeNotifier {
     ];
     _todos
       ..clear()
-      ..addAll(a);
+      ..addAll(updatedTodos);
     notifyListeners();
   }
 }
