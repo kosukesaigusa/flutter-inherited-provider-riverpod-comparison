@@ -1,7 +1,7 @@
 import 'package:common/common.dart';
 import 'package:flutter/material.dart';
 
-import 'todo.dart';
+import '../todo.dart';
 
 /// Controller to let users to handle Todo related features.
 class TodoController extends ChangeNotifier {

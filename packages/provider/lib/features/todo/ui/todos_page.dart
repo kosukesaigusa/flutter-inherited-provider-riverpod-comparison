@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_example/features/todo/todo.dart';
 
-import '../todo_controller.dart';
+import 'todo_controller.dart';
 
 /// Todos page.
 class TodosPage extends StatefulWidget {

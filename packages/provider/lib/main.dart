@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:provider_example/features/todo/ui/todos_page.dart';
 
 import 'features/todo/todo.dart';
-import 'features/todo/todo_controller.dart';
+import 'features/todo/ui/todo_controller.dart';
 import 'firebase_options.dart';
 
 void main() async {
