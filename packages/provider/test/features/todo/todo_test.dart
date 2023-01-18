@@ -30,15 +30,62 @@ void main() {
       final todos = [_FakeTodo(), _FakeTodo()];
       for (final todo in todos) {
         when(
-          todoRepository.addTodo(
-            todo,
-          ),
+          todoRepository.addTodo(todo),
         ).thenAnswer((_) => Future<void>.value());
         await todoModel.addTodo(todo);
       }
       expect(todoModel.todos, todos);
     });
+
+    test('updateTodo メソッドのテスト。', () async {
+      final todoModel = TodoModel(todoRepository: todoRepository);
+      final todos = [
+        _FakeTodoWithProps(
+          id: 'todo-1',
+          title: 'todo-1-title',
+          isCompleted: false,
+        ),
+        _FakeTodoWithProps(
+          id: 'todo-2',
+          title: 'todo-2-title',
+          isCompleted: false,
+        ),
+      ];
+      for (final todo in todos) {
+        when(
+          todoRepository.addTodo(todo),
+        ).thenAnswer((_) => Future<void>.value());
+        await todoModel.addTodo(todo);
+      }
+      final id = todos[0].id;
+      when(
+        todoRepository.updateIsCompleted(
+          id: id,
+          value: true,
+        ),
+      ).thenAnswer((_) => Future<void>.value());
+      await todoModel.updateTodo(id: id, value: true);
+      expect(todoModel.todos[0].isCompleted, true);
+      expect(todoModel.todos[1].isCompleted, false);
+      expect(todoModel.todos.length, 2);
+    });
   });
 }
 
 class _FakeTodo extends Fake implements Todo {}
+
+class _FakeTodoWithProps extends Fake implements Todo {
+  _FakeTodoWithProps({
+    required this.id,
+    required this.title,
+    required this.isCompleted,
+  });
+  @override
+  String id;
+
+  @override
+  String title;
+
+  @override
+  bool isCompleted;
+}
