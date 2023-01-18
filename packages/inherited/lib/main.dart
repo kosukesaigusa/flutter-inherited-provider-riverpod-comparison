@@ -14,21 +14,42 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const CounterPage(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class _InheritedCounter extends InheritedWidget {
+  const _InheritedCounter({
+    required super.child,
+    required this.counter,
+  });
 
-  final String title;
+  final int counter;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  bool updateShouldNotify(_InheritedCounter _) => true;
+
+  static _InheritedCounter? of(
+    BuildContext context, {
+    bool listen = true,
+  }) {
+    return listen
+        ? context.dependOnInheritedWidgetOfExactType<_InheritedCounter>()
+        : context
+            .getElementForInheritedWidgetOfExactType<_InheritedCounter>()
+            ?.widget as _InheritedCounter?;
+  }
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class CounterPage extends StatefulWidget {
+  const CounterPage({super.key});
+
+  @override
+  State<CounterPage> createState() => _CounterPageState();
+}
+
+class _CounterPageState extends State<CounterPage> {
   int _counter = 0;
 
   void _incrementCounter() {
@@ -39,29 +60,42 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+    return _InheritedCounter(
+      counter: _counter,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Counter'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const <Widget>[
+              Text(
+                'You have pushed the button this many times:',
+              ),
+              _CounterText(),
+            ],
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _incrementCounter,
+          tooltip: 'Increment',
+          child: const Icon(Icons.add),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+    );
+  }
+}
+
+class _CounterText extends StatelessWidget {
+  const _CounterText();
+
+  @override
+  Widget build(BuildContext context) {
+    final inheritedCounter = _InheritedCounter.of(context);
+    return Text(
+      '${inheritedCounter?.counter}',
+      style: Theme.of(context).textTheme.headline4,
     );
   }
 }
